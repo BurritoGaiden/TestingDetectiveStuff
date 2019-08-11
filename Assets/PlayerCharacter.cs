@@ -17,4 +17,4 @@ public class PlayerCharacter : MonoBehaviour
     }
 }
 
-public enum PlayerCharacterState { seated,standing}
+public enum PlayerCharacterState { seated,standing,inspecting}

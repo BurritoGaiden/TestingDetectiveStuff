@@ -31,8 +31,10 @@ public class Interactor : MonoBehaviour
                 else
                     interactorText.text = "Take a Seat";
             }
-            else if (hit.collider.name == "Cup") {
-
+            else if (hit.collider.name == "Dossier") {
+                if (GetComponent<Inventory>()) {
+                    interactorText.text = "Inspect Dossier";
+                }
             }
             else
             {
@@ -52,7 +54,10 @@ public class Interactor : MonoBehaviour
                     GetComponent<Sitter>().Stand();
                 else
                     GetComponent<Sitter>().Sit(hit.collider.GetComponent<Seat>());
-            }
+            } else if (hit.collider.name == "Dossier")
+            {
+                GetComponent<Inventory>().InspectItem(hit.collider.gameObject);
+            }        
         }
     }
 }
